@@ -1,0 +1,28 @@
+/*
+  Pagina2.css — referência visual para a versão web.
+  IMPORTANTE: React Native tradicional não lê arquivos .css.
+  Os estilos funcionais da tela estão no StyleSheet de Pagina2.jsx.
+  Este arquivo é apenas uma referência de cores e tipografia caso você
+  adapte a página para React DOM / React Native Web.
+*/
+
+:root {
+  --pai-background: #F8F4E9;
+  --pai-forest: #34483D;
+  --pai-green: #536D5B;
+  --pai-sage: #DDE0D0;
+  --pai-terracotta: #C97550;
+  --pai-ink: #294438;
+  --pai-muted: #68766A;
+  --pai-cream: #F1EBDD;
+  --pai-peach: #F3E1D2;
+}
+
+/*
+  Direção visual:
+  - Fundo bege quente e cards com cantos arredondados.
+  - Verde-floresta para títulos, botões e rodapé.
+  - Terracota em pequenos detalhes e chamadas de atenção.
+  - Tipografia arredondada / manuscrita nos títulos, se disponível no projeto.
+  - Layout responsivo: duas colunas em telas largas e uma coluna em telas estreitas.
+*/
