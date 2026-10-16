@@ -427,7 +427,7 @@ export default function Pagina3() {
                 {previewImagem ? "Adicionar à linha do tempo" : "Selecionar"}
               </button>
             </footer>
-          </section>
+          </section>  
         </div>
       )}
     </main>
