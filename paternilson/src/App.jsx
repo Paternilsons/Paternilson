@@ -1,30 +1,31 @@
 
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-native';
 import './App.css';
 
-export default function App() {
+function HomePage() {
   return (
     <div className="site" id="inicio">
       <header className="header">
-        <a href="#inicio" className="brand">
+        <Link to="/" className="brand">
           <span className="brand-symbol">●</span>
 
           <span className="brand-copy">
             <strong>Pai Presente</strong>
             <small>Juntos desde o primeiro instante</small>
           </span>
-        </a>
+        </Link>
 
         <nav className="navigation">
-          <a className="active" href="#inicio">Início</a>
-          <a href="#Pagina2">Manual do Pai</a>
-          <a href="#Pagina3">Preparação</a>
+          <Link className="active" to="/">Início</Link>
+          <Link to="/manual">Manual do Pai</Link>
+          <Link to="/preparacao">Preparação</Link>
         </nav>
 
-       <a className="login-button" href="/pagina2">Acessar
+        <Link className="login-button" to="/entrar">
           <span className="user-symbol">♙</span>
           Entrar
-        </a>
+        </Link>
       </header>
 
       <main>
@@ -57,7 +58,6 @@ export default function App() {
 
           <div className="hero-art">
             <div className="art-circle" />
-
             <span className="hero-heart">♡</span>
 
             <div className="family-illustration">
@@ -101,7 +101,7 @@ export default function App() {
         </section>
 
         <section className="cards">
-          <article className="card manual-card" id="manual">
+          <article className="card manual-card">
             <div className="card-icon green-icon">
               <span>♡</span>
               <span className="shirt">👕</span>
@@ -122,22 +122,19 @@ export default function App() {
                 com a chegada do seu bebê.
               </p>
 
-              <a
-                href="#Pagina2"
+              <Link
+                to="./pages/Pagina2"
                 className="access-button green-button"
               >
                 Acessar <span>→</span>
-              </a>
+              </Link>
             </div>
 
             <span className="card-leaves">🌿</span>
             <span className="card-heart">♡</span>
           </article>
 
-          <article
-            className="card preparation-card"
-            id="preparacao"
-          >
+          <article className="card preparation-card">
             <div className="card-icon orange-icon">
               <span className="calendar">▢</span>
               <span className="calendar-heart">♡</span>
@@ -158,12 +155,12 @@ export default function App() {
                 desse momento único.
               </p>
 
-              <a
-                href="#Pagina3"
+              <Link
+                to="./pages/Pagina3"
                 className="access-button orange-button"
               >
                 Acessar <span>→</span>
-              </a>
+              </Link>
             </div>
 
             <div
@@ -191,5 +188,178 @@ export default function App() {
         </footer>
       </main>
     </div>
+  );
+}
+
+function Manual() {
+  return (
+    <div className="site">
+      <header className="header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">●</span>
+          <span className="brand-copy">
+            <strong>Pai Presente</strong>
+            <small>Juntos desde o primeiro instante</small>
+          </span>
+        </Link>
+
+        <nav className="navigation">
+          <Link to="/">Início</Link>
+          <Link className="active" to="/manual">Manual do Pai</Link>
+          <Link to="/preparacao">Preparação</Link>
+        </nav>
+      </header>
+
+      <main className="subpage">
+        <h1>Manual do Pai de Primeira Viagem</h1>
+
+        <p>
+          Tudo o que você precisa saber para se sentir mais
+          preparado e confiante com a chegada do seu bebê.
+        </p>
+
+        <div className="cards">
+          <article className="card manual-card">
+            <div className="card-content">
+              <h2>Cuidados com o bebê</h2>
+              <p>
+                Conheça os cuidados básicos com o recém-nascido
+                e participe da rotina do seu filho.
+              </p>
+            </div>
+          </article>
+
+          <article className="card manual-card">
+            <div className="card-content">
+              <h2>Vínculo e afeto</h2>
+              <p>
+                Descubra maneiras de construir uma relação
+                de carinho e confiança com seu bebê.
+              </p>
+            </div>
+          </article>
+
+          <article className="card manual-card">
+            <div className="card-content">
+              <h2>Apoio à família</h2>
+              <p>
+                Aprenda como dividir responsabilidades e
+                apoiar sua família nessa nova fase.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <Link to="/" className="access-button green-button">
+          ← Voltar ao início
+        </Link>
+      </main>
+
+      <footer className="footer">
+        <p>Aqui, cada fase importa.</p>
+      </footer>
+    </div>
+  );
+}
+
+function Preparacao() {
+  return (
+    <div className="site">
+      <header className="header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">●</span>
+          <span className="brand-copy">
+            <strong>Pai Presente</strong>
+            <small>Juntos desde o primeiro instante</small>
+          </span>
+        </Link>
+
+        <nav className="navigation">
+          <Link to="/">Início</Link>
+          <Link to="/manual">Manual do Pai</Link>
+          <Link className="active" to="/preparacao">
+            Preparação
+          </Link>
+        </nav>
+      </header>
+
+      <main className="subpage">
+        <h1>Preparação e Galeria de Momentos</h1>
+
+        <p>
+          Acompanhe sua gestação, organize os preparativos
+          e guarde as lembranças dessa fase especial.
+        </p>
+
+        <div className="cards">
+          <article className="card preparation-card">
+            <div className="card-content">
+              <h2>Preparação para a chegada</h2>
+              <p>
+                Organize os itens essenciais, planeje a rotina
+                e converse com sua família sobre as responsabilidades.
+              </p>
+            </div>
+          </article>
+
+          <article className="card preparation-card">
+            <div className="card-content">
+              <h2>Galeria de Momentos</h2>
+              <p>
+                Reserve este espaço para registrar ultrassons,
+                fotografias e outras lembranças da gestação.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <Link to="/" className="access-button orange-button">
+          ← Voltar ao início
+        </Link>
+      </main>
+
+      <footer className="footer">
+        <p>Aqui, cada fase importa.</p>
+      </footer>
+    </div>
+  );
+}
+
+function Entrar() {
+  return (
+    <div className="site">
+      <header className="header">
+        <Link to="/" className="brand">
+          <span className="brand-symbol">●</span>
+          <span className="brand-copy">
+            <strong>Pai Presente</strong>
+            <small>Juntos desde o primeiro instante</small>
+          </span>
+        </Link>
+      </header>
+
+      <main className="subpage">
+        <h1>Entrar</h1>
+        <p>
+          A área de login ainda precisa ser conectada a um
+          sistema de autenticação.
+        </p>
+
+        <Link to="/" className="access-button green-button">
+          ← Voltar ao início
+        </Link>
+      </main>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/manual" element={<Manual />} />
+      <Route path="/preparacao" element={<Preparacao />} />
+      <Route path="/entrar" element={<Entrar />} />
+    </Routes>
   );
 }
