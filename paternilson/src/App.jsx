@@ -21,7 +21,7 @@ export default function App() {
           <a href="#Pagina3">Preparação</a>
         </nav>
 
-        <a className="login-button" href="#entrar">
+       <a className="login-button" href="/pagina2">Acessar
           <span className="user-symbol">♙</span>
           Entrar
         </a>
