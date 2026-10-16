@@ -1,122 +1,183 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+import './App.css';
 
+export default function App() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="site" id="inicio">
+      <header className="header">
+        <a href="#inicio" className="brand">
+          <span className="brand-symbol">●</span>
+          <span className="brand-copy">
+            <strong>Pai Presente</strong>
+            <small>Juntos desde o primeiro instante</small>
+          </span>
+        </a>
 
-      <div className="ticks"></div>
+        <nav className="navigation">
+          <a className="active" href="#inicio">Início</a>
+          <a href="#manual">Manual do Pai</a>
+          <a href="#preparacao">Preparação</a>
+        </nav>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <a className="login-button" href="#entrar">
+          <span className="user-symbol">♙</span>
+          Entrar
+        </a>
+      </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <main>
+        <section className="hero">
+          <div className="hero-text">
+            <div className="welcome-badge">
+              <span>♥</span>
+              Bem-vindo ao Pai Presente
+            </div>
+
+            <h1>
+              A paternidade
+              <br />
+              <span>também se aprende.</span>
+              <span className="title-spark">〃</span>
+            </h1>
+
+            <p className="hero-description">
+              Um espaço feito para te acompanhar em
+              <br />
+              cada etapa dessa nova jornada. Aqui você encontra
+              <br />
+              apoio, orientação e segurança para viver
+              <br />
+              a paternidade com mais confiança.
+            </p>
+
+            <div className="wave">〰〰</div>
+          </div>
+
+          <div className="hero-art">
+            <div className="art-circle" />
+
+            <span className="hero-heart">♡</span>
+
+            <div className="family-illustration">
+              <div className="father-figure">
+                <div className="father-hair" />
+                <div className="father-head">
+                  <span className="father-eye" />
+                  <span className="father-nose" />
+                </div>
+                <div className="father-body" />
+                <div className="father-arm" />
+              </div>
+
+              <div className="baby-figure">
+                <div className="baby-hair" />
+                <div className="baby-head">
+                  <span className="baby-eye left" />
+                  <span className="baby-eye right" />
+                  <span className="baby-smile" />
+                </div>
+                <div className="baby-body" />
+              </div>
+            </div>
+
+            <p className="encouragement">
+              Você
+              <br />
+              consegue!
+              <br />
+              ♡
+            </p>
+
+            <span className="teddy">🧸</span>
+            <span className="hero-leaves left-leaves">🌿</span>
+            <span className="hero-leaves right-leaves">🌿</span>
+          </div>
+        </section>
+
+        <section className="cards">
+          <article className="card manual-card" id="manual">
+            <div className="card-icon green-icon">
+              <span>♡</span>
+              <span className="shirt">👕</span>
+            </div>
+
+            <div className="card-content">
+              <h2>
+                Manual do Pai
+                <br />
+                de Primeira Viagem
+              </h2>
+
+              <p>
+                Tudo o que você precisa saber para
+                <br />
+                se sentir mais preparado e confiante
+                <br />
+                com a chegada do seu bebê.
+              </p>
+
+              <a href="#manual" className="access-button green-button">
+                Acessar <span>→</span>
+              </a>
+            </div>
+
+            <span className="card-leaves">🌿</span>
+            <span className="card-heart">♡</span>
+          </article>
+
+          <article
+            className="card preparation-card"
+            id="preparacao"
+          >
+            <div className="card-icon orange-icon">
+              <span className="calendar">▢</span>
+              <span className="calendar-heart">♡</span>
+            </div>
+
+            <div className="card-content">
+              <h2>
+                Preparação e
+                <br />
+                Galeria de Momentos
+              </h2>
+
+              <p>
+                Acompanhe sua gestação, organize o
+                <br />
+                seu dia a dia e guarde cada lembrança
+                <br />
+                desse momento único.
+              </p>
+
+              <a
+                href="#preparacao"
+                className="access-button orange-button"
+              >
+                Acessar <span>→</span>
+              </a>
+            </div>
+
+            <div className="photo-stack" aria-label="Momentos da gestação">
+              <div className="photo photo-ultrasound">
+                <span>♡</span>
+                <small>Ultrassom</small>
+              </div>
+              <div className="photo photo-feet">👣</div>
+              <div className="photo photo-baby">♡</div>
+            </div>
+
+            <span className="prep-leaves">🌿</span>
+            <span className="prep-heart">♡</span>
+          </article>
+        </section>
+
+        <footer className="footer">
+          <span className="footer-decoration">⌁</span>
+          <p>Aqui, cada fase importa.</p>
+          <span className="footer-decoration">⌁</span>
+        </footer>
+      </main>
+    </div>
+  );
 }
-
-export default App
