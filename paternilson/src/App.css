@@ -1,0 +1,931 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Patrick+Hand:wght@400&display=swap');
+
+:root {
+  --cream: #faf5ea;
+  --green: #385448;
+  --green-soft: #e9e9d9;
+  --sage: #a8b198;
+  --terracotta: #bd704f;
+  --orange: #cd8969;
+  --text: #506157;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--green);
+  font-family: 'Nunito', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.site {
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 5.8%;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse at 60% 25%,
+      #eee8d8 0%,
+      transparent 40%
+    ),
+    var(--cream);
+}
+
+/* CABEÇALHO */
+
+.header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-bottom: 1px solid rgba(190, 177, 151, 0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+}
+
+.brand-symbol {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--green);
+  font-size: 39px;
+  line-height: 1;
+}
+
+.brand-symbol::before {
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 22px;
+  left: 0;
+  top: 12px;
+  border: 2px solid var(--green);
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-25deg);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-copy strong {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 30px;
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.brand-copy small {
+  color: #657269;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 37px;
+}
+
+.navigation a {
+  font-size: 12px;
+  position: relative;
+  padding: 10px 0;
+  color: #526258;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: var(--green);
+}
+
+.navigation a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--green);
+  border-radius: 10px;
+}
+
+.login-button {
+  border: 1px solid #819487;
+  border-radius: 30px;
+  padding: 8px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  color: white;
+  background: var(--green);
+}
+
+.user-symbol {
+  font-size: 21px;
+  line-height: 16px;
+}
+
+/* ÁREA PRINCIPAL */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  align-items: center;
+  min-height: 282px;
+  gap: 18px;
+  position: relative;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 3;
+  padding: 15px 0;
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eeebdd;
+  color: #536257;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  margin-bottom: 13px;
+}
+
+.welcome-badge span:first-child {
+  color: #d58a60;
+  font-size: 14px;
+}
+
+.hero h1 {
+  color: var(--green);
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(39px, 4vw, 53px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0.2px;
+  position: relative;
+}
+
+.hero h1 > span:first-of-type {
+  color: var(--terracotta);
+}
+
+.title-spark {
+  display: inline-block;
+  color: var(--terracotta);
+  font-family: 'Nunito', sans-serif;
+  font-size: 28px;
+  transform: rotate(-20deg);
+  margin-left: 4px;
+}
+
+.hero-description {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text);
+}
+
+.wave {
+  color: #d99465;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -5px;
+  margin-top: 4px;
+  width: max-content;
+}
+
+/* ILUSTRAÇÃO PRINCIPAL */
+
+.hero-art {
+  min-height: 275px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.art-circle {
+  position: absolute;
+  width: 77%;
+  height: 255px;
+  background: #e2e1ce;
+  border-radius: 48% 52% 44% 56%;
+  transform: rotate(-12deg);
+  z-index: -1;
+}
+
+/* Pai ilustrado em CSS */
+
+.family-illustration {
+  width: 300px;
+  height: 270px;
+  position: relative;
+  margin-top: 14px;
+}
+
+.father-figure {
+  position: absolute;
+  width: 190px;
+  height: 245px;
+  left: 38px;
+  bottom: 0;
+}
+
+.father-body {
+  position: absolute;
+  width: 185px;
+  height: 153px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(120deg, #455c4e, #293f35);
+  border-radius: 78px 78px 35px 35px;
+  transform: rotate(-5deg);
+}
+
+.father-head {
+  position: absolute;
+  width: 90px;
+  height: 112px;
+  left: 60px;
+  top: 22px;
+  z-index: 3;
+  background: #d9936b;
+  border-radius: 45% 48% 46% 42%;
+  transform: rotate(-14deg);
+}
+
+.father-hair {
+  position: absolute;
+  width: 112px;
+  height: 76px;
+  left: 48px;
+  top: 1px;
+  z-index: 4;
+  background: #4b3529;
+  border-radius: 55% 45% 35% 35%;
+  transform: rotate(-9deg);
+  box-shadow:
+    -13px 14px 0 -4px #4b3529,
+    8px -5px 0 2px #4b3529,
+    25px 7px 0 -5px #4b3529;
+}
+
+.father-eye {
+  position: absolute;
+  top: 49px;
+  left: 49px;
+  width: 15px;
+  height: 3px;
+  border-radius: 100%;
+  background: #382a24;
+  transform: rotate(12deg);
+}
+
+.father-nose {
+  position: absolute;
+  top: 55px;
+  left: 61px;
+  width: 12px;
+  height: 16px;
+  border-right: 3px solid #b96f4f;
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+
+.father-arm {
+  position: absolute;
+  width: 135px;
+  height: 49px;
+  right: -26px;
+  bottom: 18px;
+  z-index: 5;
+  background: #d9936b;
+  border-radius: 35px;
+  transform: rotate(-28deg);
+  border-bottom: 4px solid #bd7958;
+}
+
+/* Bebê */
+
+.baby-figure {
+  position: absolute;
+  width: 125px;
+  height: 140px;
+  right: 0;
+  bottom: 9px;
+  z-index: 6;
+}
+
+.baby-head {
+  position: absolute;
+  width: 76px;
+  height: 72px;
+  top: 5px;
+  left: 27px;
+  background: #efbd91;
+  border-radius: 48% 52% 48% 45%;
+  z-index: 2;
+}
+
+.baby-hair {
+  position: absolute;
+  width: 72px;
+  height: 32px;
+  top: 0;
+  left: 29px;
+  z-index: 3;
+  background: #684532;
+  border-radius: 60% 45% 25% 25%;
+  transform: rotate(-7deg);
+}
+
+.baby-eye {
+  position: absolute;
+  top: 38px;
+  width: 9px;
+  height: 4px;
+  border-bottom: 2px solid #604033;
+  border-radius: 50%;
+}
+
+.baby-eye.left {
+  left: 18px;
+}
+
+.baby-eye.right {
+  right: 17px;
+}
+
+.baby-smile {
+  position: absolute;
+  left: 29px;
+  top: 48px;
+  width: 16px;
+  height: 7px;
+  border-bottom: 2px solid #bd7958;
+  border-radius: 50%;
+}
+
+.baby-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 125px;
+  height: 74px;
+  border-radius: 48% 40% 30% 30%;
+  background:
+    radial-gradient(circle, #d4a884 1px, transparent 2px),
+    #f0dfc6;
+  background-size: 13px 13px;
+  transform: rotate(-7deg);
+  border-bottom: 4px solid #d2ad8c;
+}
+
+.hero-heart {
+  position: absolute;
+  top: 42px;
+  left: 13%;
+  color: #dba16c;
+  font-size: 46px;
+  transform: rotate(-12deg);
+}
+
+.encouragement {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  color: #526758;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 21px;
+  line-height: 0.98;
+  transform: rotate(-8deg);
+}
+
+.teddy {
+  position: absolute;
+  right: 4%;
+  bottom: 2px;
+  font-size: 55px;
+}
+
+.hero-leaves {
+  position: absolute;
+  font-size: 42px;
+  bottom: 8px;
+}
+
+.left-leaves {
+  left: 0;
+}
+
+.right-leaves {
+  right: 18%;
+  bottom: 0;
+  transform: rotate(25deg);
+}
+
+/* CARTÕES */
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 2px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 23px;
+  min-width: 0;
+  min-height: 214px;
+  padding: 24px 30px;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.manual-card {
+  background: #eaeada;
+}
+
+.preparation-card {
+  background: #f5e7d8;
+}
+
+.card-icon {
+  width: 91px;
+  height: 91px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.green-icon {
+  background: #a8b198;
+}
+
+.green-icon > span:first-child {
+  position: absolute;
+  top: 18px;
+  color: #536b56;
+  font-size: 24px;
+}
+
+.shirt {
+  font-size: 41px;
+  position: relative;
+  top: 4px;
+}
+
+.orange-icon {
+  background: #cc8b6d;
+  color: white;
+}
+
+.calendar {
+  font-family: 'Nunito', sans-serif;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.calendar-heart {
+  position: absolute;
+  top: 35px;
+  left: 36px;
+  font-size: 19px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.card-content h2 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.03;
+  font-weight: 400;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.card-content p {
+  font-size: 11.5px;
+  line-height: 17px;
+  color: var(--text);
+  margin-bottom: 15px;
+}
+
+.access-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  min-width: 109px;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.access-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.green-button {
+  background: #385448;
+}
+
+.orange-button {
+  background: #c9805e;
+}
+
+.access-button span:last-child {
+  font-size: 20px;
+  line-height: 12px;
+}
+
+.card-leaves {
+  position: absolute;
+  right: 8px;
+  bottom: -6px;
+  font-size: 53px;
+}
+
+.card-heart {
+  position: absolute;
+  right: 23%;
+  bottom: 9px;
+  color: #c87b54;
+  font-size: 28px;
+}
+
+.photo-stack {
+  position: absolute;
+  right: 14px;
+  top: 40px;
+  width: 105px;
+  height: 130px;
+  z-index: 2;
+}
+
+.photo {
+  position: absolute;
+  width: 77px;
+  height: 63px;
+  border: 6px solid #fffdf7;
+  border-radius: 2px;
+  background: #e5ddce;
+  box-shadow: 0 3px 8px #594a351c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-ultrasound {
+  top: 0;
+  left: 13px;
+  transform: rotate(9deg);
+  flex-direction: column;
+  background: #71695e;
+  color: #fff5e8;
+}
+
+.photo-ultrasound span {
+  font-size: 23px;
+}
+
+.photo-ultrasound small {
+  font-size: 7px;
+}
+
+.photo-feet {
+  top: 52px;
+  left: -5px;
+  transform: rotate(-8deg);
+  font-size: 28px;
+  background: #f1d8c4;
+}
+
+.photo-baby {
+  top: 69px;
+  left: 25px;
+  transform: rotate(12deg);
+  font-size: 35px;
+  background: #e9d5c1;
+}
+
+.prep-leaves {
+  position: absolute;
+  right: 17%;
+  bottom: -9px;
+  font-size: 42px;
+}
+
+.prep-heart {
+  position: absolute;
+  right: 8px;
+  top: 85px;
+  color: #c77a54;
+  font-size: 23px;
+}
+
+/* RODAPÉ */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 26px 0 22px;
+}
+
+.footer p {
+  color: #657165;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 16px;
+}
+
+.footer-decoration {
+  color: #ce875d;
+  font-size: 27px;
+  transform: rotate(-25deg);
+}
+
+/* TELAS MÉDIAS */
+
+@media (min-width: 1400px) {
+  .hero {
+    min-height: 320px;
+  }
+
+  .hero-art {
+    min-height: 310px;
+  }
+
+  .family-illustration {
+    transform: scale(1.12);
+  }
+
+  .card {
+    min-height: 225px;
+    padding: 28px 30px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .site {
+    padding: 0 3%;
+  }
+
+  .header {
+    gap: 15px;
+  }
+
+  .navigation {
+    gap: 18px;
+  }
+
+  .brand-copy strong {
+    font-size: 25px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+  }
+
+  .family-illustration {
+    transform: scale(0.85);
+  }
+
+  .card {
+    gap: 14px;
+    padding: 21px 17px;
+  }
+
+  .card-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .card-content h2 {
+    font-size: 21px;
+  }
+
+  .card-content p {
+    font-size: 10px;
+  }
+
+  .photo-stack {
+    transform: scale(0.78);
+    transform-origin: top right;
+    right: 5px;
+  }
+}
+
+/* CELULAR E TELAS ESTREITAS */
+
+@media (max-width: 760px) {
+  .site {
+    padding: 0 18px;
+  }
+
+  .header {
+    min-height: 75px;
+    height: auto;
+    padding: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .brand-copy strong {
+    font-size: 24px;
+  }
+
+  .brand-copy small {
+    font-size: 9px;
+  }
+
+  .navigation {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .navigation a {
+    font-size: 11px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 25px;
+  }
+
+  .hero h1 {
+    font-size: clamp(37px, 9vw, 48px);
+  }
+
+  .hero-description br,
+  .card-content p br {
+    display: none;
+  }
+
+  .hero-description {
+    max-width: 440px;
+  }
+
+  .hero-art {
+    min-height: 265px;
+  }
+
+  .art-circle {
+    max-width: 320px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .card {
+    min-height: 215px;
+    padding: 22px 17px;
+    gap: 14px;
+  }
+
+  .card-content h2 {
+    font-size: 21px;
+  }
+
+  .card-content p {
+    max-width: 280px;
+    font-size: 11px;
+  }
+
+  .photo-stack {
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 420px) {
+  .site {
+    padding: 0 12px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-copy strong {
+    font-size: 21px;
+  }
+
+  .login-button {
+    padding: 7px 10px;
+  }
+
+  .card {
+    gap: 10px;
+    padding: 19px 12px;
+  }
+
+  .card-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .shirt {
+    font-size: 30px;
+  }
+
+  .calendar {
+    font-size: 37px;
+  }
+
+  .calendar-heart {
+    top: 20px;
+    left: 21px;
+    font-size: 15px;
+  }
+
+  .card-content h2 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+
+  .photo-stack {
+    display: none;
+  }
+}
+
