@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './App.css';
 
@@ -7,6 +8,7 @@ export default function App() {
       <header className="header">
         <a href="#inicio" className="brand">
           <span className="brand-symbol">●</span>
+
           <span className="brand-copy">
             <strong>Pai Presente</strong>
             <small>Juntos desde o primeiro instante</small>
@@ -15,8 +17,8 @@ export default function App() {
 
         <nav className="navigation">
           <a className="active" href="#inicio">Início</a>
-          <a href="#manual">Manual do Pai</a>
-          <a href="#preparacao">Preparação</a>
+          <a href="#Pagina2">Manual do Pai</a>
+          <a href="#Pagina3">Preparação</a>
         </nav>
 
         <a className="login-button" href="#entrar">
@@ -61,21 +63,25 @@ export default function App() {
             <div className="family-illustration">
               <div className="father-figure">
                 <div className="father-hair" />
+
                 <div className="father-head">
                   <span className="father-eye" />
                   <span className="father-nose" />
                 </div>
+
                 <div className="father-body" />
                 <div className="father-arm" />
               </div>
 
               <div className="baby-figure">
                 <div className="baby-hair" />
+
                 <div className="baby-head">
                   <span className="baby-eye left" />
                   <span className="baby-eye right" />
                   <span className="baby-smile" />
                 </div>
+
                 <div className="baby-body" />
               </div>
             </div>
@@ -116,7 +122,10 @@ export default function App() {
                 com a chegada do seu bebê.
               </p>
 
-              <a href="#manual" className="access-button green-button">
+              <a
+                href="#Pagina2"
+                className="access-button green-button"
+              >
                 Acessar <span>→</span>
               </a>
             </div>
@@ -150,18 +159,22 @@ export default function App() {
               </p>
 
               <a
-                href="#preparacao"
+                href="#Pagina3"
                 className="access-button orange-button"
               >
                 Acessar <span>→</span>
               </a>
             </div>
 
-            <div className="photo-stack" aria-label="Momentos da gestação">
+            <div
+              className="photo-stack"
+              aria-label="Momentos da gestação"
+            >
               <div className="photo photo-ultrasound">
                 <span>♡</span>
                 <small>Ultrassom</small>
               </div>
+
               <div className="photo photo-feet">👣</div>
               <div className="photo photo-baby">♡</div>
             </div>
@@ -180,4 +193,3 @@ export default function App() {
     </div>
   );
 }
-
