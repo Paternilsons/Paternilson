@@ -1,7 +1,17 @@
 
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-native';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from 'react-router-dom';
+
 import './App.css';
+
+// ========================================
+// PÁGINA INICIAL
+// ========================================
 
 function HomePage() {
   return (
@@ -17,7 +27,9 @@ function HomePage() {
         </Link>
 
         <nav className="navigation">
-          <Link className="active" to="/">Início</Link>
+          <Link className="active" to="/">
+            Início
+          </Link>
           <Link to="/manual">Manual do Pai</Link>
           <Link to="/preparacao">Preparação</Link>
         </nav>
@@ -123,7 +135,7 @@ function HomePage() {
               </p>
 
               <Link
-                to="./pages/Pagina2"
+                to="/manual"
                 className="access-button green-button"
               >
                 Acessar <span>→</span>
@@ -156,7 +168,7 @@ function HomePage() {
               </p>
 
               <Link
-                to="./pages/Pagina3"
+                to="/preparacao"
                 className="access-button orange-button"
               >
                 Acessar <span>→</span>
@@ -191,12 +203,17 @@ function HomePage() {
   );
 }
 
+// ========================================
+// PÁGINA MANUAL DO PAI
+// ========================================
+
 function Manual() {
   return (
     <div className="site">
       <header className="header">
         <Link to="/" className="brand">
           <span className="brand-symbol">●</span>
+
           <span className="brand-copy">
             <strong>Pai Presente</strong>
             <small>Juntos desde o primeiro instante</small>
@@ -205,7 +222,9 @@ function Manual() {
 
         <nav className="navigation">
           <Link to="/">Início</Link>
-          <Link className="active" to="/manual">Manual do Pai</Link>
+          <Link className="active" to="/manual">
+            Manual do Pai
+          </Link>
           <Link to="/preparacao">Preparação</Link>
         </nav>
       </header>
@@ -262,12 +281,17 @@ function Manual() {
   );
 }
 
+// ========================================
+// PÁGINA PREPARAÇÃO
+// ========================================
+
 function Preparacao() {
   return (
     <div className="site">
       <header className="header">
         <Link to="/" className="brand">
           <span className="brand-symbol">●</span>
+
           <span className="brand-copy">
             <strong>Pai Presente</strong>
             <small>Juntos desde o primeiro instante</small>
@@ -325,12 +349,17 @@ function Preparacao() {
   );
 }
 
+// ========================================
+// PÁGINA ENTRAR
+// ========================================
+
 function Entrar() {
   return (
     <div className="site">
       <header className="header">
         <Link to="/" className="brand">
           <span className="brand-symbol">●</span>
+
           <span className="brand-copy">
             <strong>Pai Presente</strong>
             <small>Juntos desde o primeiro instante</small>
@@ -340,6 +369,7 @@ function Entrar() {
 
       <main className="subpage">
         <h1>Entrar</h1>
+
         <p>
           A área de login ainda precisa ser conectada a um
           sistema de autenticação.
@@ -353,13 +383,19 @@ function Entrar() {
   );
 }
 
+// ========================================
+// ROTAS DA APLICAÇÃO
+// ========================================
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/manual" element={<Manual />} />
-      <Route path="/preparacao" element={<Preparacao />} />
-      <Route path="/entrar" element={<Entrar />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/manual" element={<Manual />} />
+        <Route path="/preparacao" element={<Preparacao />} />
+        <Route path="/entrar" element={<Entrar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
