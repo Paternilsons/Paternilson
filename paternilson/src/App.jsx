@@ -21,7 +21,7 @@ function Header() {
         </span>
 
         <span className="brand-copy">
-          <strong>Pai Presente</strong>
+          <strong>Paternilson</strong>
           <small>Juntos desde o primeiro instante</small>
         </span>
       </Link>
