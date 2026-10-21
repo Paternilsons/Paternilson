@@ -4,398 +4,255 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  NavLink,
   Link,
+  Navigate,
 } from 'react-router-dom';
-
 import './App.css';
 
-// ========================================
-// PÁGINA INICIAL
-// ========================================
+function Header() {
+  return (
+    <header className="header">
+      <Link to="/" className="brand">
+        <span className="brand-icon">●</span>
+        <span className="brand-text">
+          <strong>Pai Presente</strong>
+          <small>Juntos desde o primeiro instante</small>
+        </span>
+      </Link>
+
+      <nav className="navigation">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+        >
+          Início
+        </NavLink>
+
+        <NavLink
+          to="/manual"
+          className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+        >
+          Manual do Pai
+        </NavLink>
+
+        <NavLink
+          to="/preparacao"
+          className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+        >
+          Preparação
+        </NavLink>
+
+        <NavLink
+          to="/entrar"
+          className={({ isActive }) =>
+            isActive ? 'login-link active' : 'login-link'
+          }
+        >
+          <span aria-hidden="true">♙</span> Entrar
+        </NavLink>
+      </nav>
+    </header>
+  );
+}
 
 function HomePage() {
   return (
-    <div className="site" id="inicio">
-      <header className="header">
-        <Link to="/" className="brand">
-          <span className="brand-symbol">●</span>
+    <main className="home-page">
+      <section className="hero">
+        <div className="hero-content">
+          <span className="eyebrow">PATERNIDADE • PRESENÇA • AMOR</span>
 
-          <span className="brand-copy">
-            <strong>Pai Presente</strong>
-            <small>Juntos desde o primeiro instante</small>
-          </span>
-        </Link>
+          <h1>
+            Bem-vindo ao
+            <br />
+            <span>Pai Presente</span> ♡
+          </h1>
 
-        <nav className="navigation">
-          <Link className="active" to="/">
-            Início
-          </Link>
-          <Link to="/manual">Manual do Pai</Link>
-          <Link to="/preparacao">Preparação</Link>
-        </nav>
+          <p>
+            Uma jornada de descobertas, aprendizados e momentos especiais
+            para acompanhar você desde o primeiro instante da paternidade.
+          </p>
 
-        <Link className="login-button" to="/entrar">
-          <span className="user-symbol">♙</span>
-          Entrar
-        </Link>
-      </header>
+          <div className="hero-buttons">
+            <Link to="/manual" className="button button-primary">
+              Conheça o manual
+              <span aria-hidden="true"> →</span>
+            </Link>
 
-      <main>
-        <section className="hero">
-          <div className="hero-text">
-            <div className="welcome-badge">
-              <span>♥</span>
-              Bem-vindo ao Pai Presente
-            </div>
-
-            <h1>
-              A paternidade
-              <br />
-              <span>também se aprende.</span>
-              <span className="title-spark">〃</span>
-            </h1>
-
-            <p className="hero-description">
-              Um espaço feito para te acompanhar em
-              <br />
-              cada etapa dessa nova jornada. Aqui você encontra
-              <br />
-              apoio, orientação e segurança para viver
-              <br />
-              a paternidade com mais confiança.
-            </p>
-
-            <div className="wave">〰〰</div>
+            <Link to="/preparacao" className="button button-secondary">
+              Comece sua preparação
+            </Link>
           </div>
 
-          <div className="hero-art">
-            <div className="art-circle" />
-            <span className="hero-heart">♡</span>
-
-            <div className="family-illustration">
-              <div className="father-figure">
-                <div className="father-hair" />
-
-                <div className="father-head">
-                  <span className="father-eye" />
-                  <span className="father-nose" />
-                </div>
-
-                <div className="father-body" />
-                <div className="father-arm" />
-              </div>
-
-              <div className="baby-figure">
-                <div className="baby-hair" />
-
-                <div className="baby-head">
-                  <span className="baby-eye left" />
-                  <span className="baby-eye right" />
-                  <span className="baby-smile" />
-                </div>
-
-                <div className="baby-body" />
-              </div>
-            </div>
-
-            <p className="encouragement">
-              Você
-              <br />
-              consegue!
-              <br />
-              ♡
-            </p>
-
-            <span className="teddy">🧸</span>
-            <span className="hero-leaves left-leaves">🌿</span>
-            <span className="hero-leaves right-leaves">🌿</span>
+          <div className="hero-note">
+            <span className="note-heart">♡</span>
+            <span>Estar presente é o primeiro passo para transformar vidas.</span>
           </div>
-        </section>
-
-        <section className="cards">
-          <article className="card manual-card">
-            <div className="card-icon green-icon">
-              <span>♡</span>
-              <span className="shirt">👕</span>
-            </div>
-
-            <div className="card-content">
-              <h2>
-                Manual do Pai
-                <br />
-                de Primeira Viagem
-              </h2>
-
-              <p>
-                Tudo o que você precisa saber para
-                <br />
-                se sentir mais preparado e confiante
-                <br />
-                com a chegada do seu bebê.
-              </p>
-
-              <Link
-                to="/manual"
-                className="access-button green-button"
-              >
-                Acessar <span>→</span>
-              </Link>
-            </div>
-
-            <span className="card-leaves">🌿</span>
-            <span className="card-heart">♡</span>
-          </article>
-
-          <article className="card preparation-card">
-            <div className="card-icon orange-icon">
-              <span className="calendar">▢</span>
-              <span className="calendar-heart">♡</span>
-            </div>
-
-            <div className="card-content">
-              <h2>
-                Preparação e
-                <br />
-                Galeria de Momentos
-              </h2>
-
-              <p>
-                Acompanhe sua gestação, organize o
-                <br />
-                seu dia a dia e guarde cada lembrança
-                <br />
-                desse momento único.
-              </p>
-
-              <Link
-                to="/preparacao"
-                className="access-button orange-button"
-              >
-                Acessar <span>→</span>
-              </Link>
-            </div>
-
-            <div
-              className="photo-stack"
-              aria-label="Momentos da gestação"
-            >
-              <div className="photo photo-ultrasound">
-                <span>♡</span>
-                <small>Ultrassom</small>
-              </div>
-
-              <div className="photo photo-feet">👣</div>
-              <div className="photo photo-baby">♡</div>
-            </div>
-
-            <span className="prep-leaves">🌿</span>
-            <span className="prep-heart">♡</span>
-          </article>
-        </section>
-
-        <footer className="footer">
-          <span className="footer-decoration">⌁</span>
-          <p>Aqui, cada fase importa.</p>
-          <span className="footer-decoration">⌁</span>
-        </footer>
-      </main>
-    </div>
-  );
-}
-
-// ========================================
-// PÁGINA MANUAL DO PAI
-// ========================================
-
-function Manual() {
-  return (
-    <div className="site">
-      <header className="header">
-        <Link to="/" className="brand">
-          <span className="brand-symbol">●</span>
-
-          <span className="brand-copy">
-            <strong>Pai Presente</strong>
-            <small>Juntos desde o primeiro instante</small>
-          </span>
-        </Link>
-
-        <nav className="navigation">
-          <Link to="/">Início</Link>
-          <Link className="active" to="/manual">
-            Manual do Pai
-          </Link>
-          <Link to="/preparacao">Preparação</Link>
-        </nav>
-      </header>
-
-      <main className="subpage">
-        <h1>Manual do Pai de Primeira Viagem</h1>
-
-        <p>
-          Tudo o que você precisa saber para se sentir mais
-          preparado e confiante com a chegada do seu bebê.
-        </p>
-
-        <div className="cards">
-          <article className="card manual-card">
-            <div className="card-content">
-              <h2>Cuidados com o bebê</h2>
-              <p>
-                Conheça os cuidados básicos com o recém-nascido
-                e participe da rotina do seu filho.
-              </p>
-            </div>
-          </article>
-
-          <article className="card manual-card">
-            <div className="card-content">
-              <h2>Vínculo e afeto</h2>
-              <p>
-                Descubra maneiras de construir uma relação
-                de carinho e confiança com seu bebê.
-              </p>
-            </div>
-          </article>
-
-          <article className="card manual-card">
-            <div className="card-content">
-              <h2>Apoio à família</h2>
-              <p>
-                Aprenda como dividir responsabilidades e
-                apoiar sua família nessa nova fase.
-              </p>
-            </div>
-          </article>
         </div>
 
-        <Link to="/" className="access-button green-button">
-          ← Voltar ao início
-        </Link>
-      </main>
-
-      <footer className="footer">
-        <p>Aqui, cada fase importa.</p>
-      </footer>
-    </div>
-  );
-}
-
-// ========================================
-// PÁGINA PREPARAÇÃO
-// ========================================
-
-function Preparacao() {
-  return (
-    <div className="site">
-      <header className="header">
-        <Link to="/" className="brand">
-          <span className="brand-symbol">●</span>
-
-          <span className="brand-copy">
-            <strong>Pai Presente</strong>
-            <small>Juntos desde o primeiro instante</small>
-          </span>
-        </Link>
-
-        <nav className="navigation">
-          <Link to="/">Início</Link>
-          <Link to="/manual">Manual do Pai</Link>
-          <Link className="active" to="/preparacao">
-            Preparação
-          </Link>
-        </nav>
-      </header>
-
-      <main className="subpage">
-        <h1>Preparação e Galeria de Momentos</h1>
-
-        <p>
-          Acompanhe sua gestação, organize os preparativos
-          e guarde as lembranças dessa fase especial.
-        </p>
-
-        <div className="cards">
-          <article className="card preparation-card">
-            <div className="card-content">
-              <h2>Preparação para a chegada</h2>
-              <p>
-                Organize os itens essenciais, planeje a rotina
-                e converse com sua família sobre as responsabilidades.
-              </p>
+        <div className="hero-visual">
+          <div className="visual-circle">
+            <div className="illustration">
+              <span className="illustration-sun">☼</span>
+              <span className="illustration-heart">♡</span>
+              <div className="father-head" />
+              <div className="father-hair" />
+              <div className="father-body" />
+              <div className="baby-head" />
+              <div className="baby-body" />
+              <div className="illustration-star star-one">✦</div>
+              <div className="illustration-star star-two">✧</div>
             </div>
-          </article>
+          </div>
 
-          <article className="card preparation-card">
-            <div className="card-content">
-              <h2>Galeria de Momentos</h2>
-              <p>
-                Reserve este espaço para registrar ultrassons,
-                fotografias e outras lembranças da gestação.
-              </p>
-            </div>
-          </article>
+          <div className="floating-note">
+            <span className="floating-note-icon">♡</span>
+            <span>
+              <strong>Pequenos momentos</strong>
+              <small>Grandes memórias</small>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="welcome-section">
+        <div className="section-heading">
+          <span className="eyebrow">SUA JORNADA COMEÇA AQUI</span>
+          <h2>Presença que faz a diferença</h2>
+          <p>
+            Cada etapa é uma oportunidade de aprender, cuidar e criar vínculos.
+          </p>
         </div>
 
-        <Link to="/" className="access-button orange-button">
-          ← Voltar ao início
-        </Link>
-      </main>
+        <div className="feature-grid">
+          <article className="feature-card">
+            <div className="feature-icon">♡</div>
+            <h3>Manual do Pai de Primeira Viagem</h3>
+            <p>
+              Um espaço dedicado a acompanhar a sua jornada como pai.
+            </p>
+            <Link to="/manual" className="text-link">
+              Acessar página <span aria-hidden="true">→</span>
+            </Link>
+          </article>
 
-      <footer className="footer">
-        <p>Aqui, cada fase importa.</p>
-      </footer>
-    </div>
+          <article className="feature-card">
+            <div className="feature-icon">✦</div>
+            <h3>Preparação e Galeria de Momentos</h3>
+            <p>
+              Um espaço reservado para a preparação e as lembranças da família.
+            </p>
+            <Link to="/preparacao" className="text-link">
+              Acessar página <span aria-hidden="true">→</span>
+            </Link>
+          </article>
+        </div>
+      </section>
+    </main>
   );
 }
 
-// ========================================
-// PÁGINA ENTRAR
-// ========================================
+/*
+  Páginas reservadas para outra pessoa desenvolver.
+  Não adicione conteúdo aqui por enquanto.
+*/
+function ManualPage() {
+  return <main className="blank-page" aria-label="Manual do Pai" />;
+}
 
-function Entrar() {
+function PreparacaoPage() {
+  return <main className="blank-page" aria-label="Preparação e Galeria" />;
+}
+
+function LoginPage() {
   return (
-    <div className="site">
-      <header className="header">
-        <Link to="/" className="brand">
-          <span className="brand-symbol">●</span>
+    <main className="login-page">
+      <section className="login-card">
+        <span className="login-symbol">♡</span>
+        <h1>Bem-vindo de volta!</h1>
+        <p>Entre para continuar sua jornada com o Pai Presente.</p>
 
-          <span className="brand-copy">
-            <strong>Pai Presente</strong>
-            <small>Juntos desde o primeiro instante</small>
-          </span>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            alert('Esta página de entrada ainda não está conectada a um sistema de autenticação.');
+          }}
+        >
+          <label htmlFor="email">E-mail</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Digite seu e-mail"
+            required
+          />
+
+          <label htmlFor="password">Senha</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Digite sua senha"
+            required
+          />
+
+          <button type="submit" className="button button-primary login-button">
+            Entrar
+          </button>
+        </form>
+
+        <Link to="/" className="back-link">
+          ← Voltar para o início
         </Link>
-      </header>
-
-      <main className="subpage">
-        <h1>Entrar</h1>
-
-        <p>
-          A área de login ainda precisa ser conectada a um
-          sistema de autenticação.
-        </p>
-
-        <Link to="/" className="access-button green-button">
-          ← Voltar ao início
-        </Link>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
 
-// ========================================
-// ROTAS DA APLICAÇÃO
-// ========================================
+function NotFoundPage() {
+  return (
+    <main className="not-found-page">
+      <h1>Página não encontrada</h1>
+      <p>O endereço acessado não existe.</p>
+      <Link to="/" className="button button-primary">
+        Voltar para o início
+      </Link>
+    </main>
+  );
+}
 
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/manual" element={<Manual />} />
-        <Route path="/preparacao" element={<Preparacao />} />
-        <Route path="/entrar" element={<Entrar />} />
-      </Routes>
+      <div className="site">
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/manual" element={<ManualPage />} />
+          <Route path="/preparacao" element={<PreparacaoPage />} />
+          <Route path="/entrar" element={<LoginPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+
+        <footer className="footer">
+          <Link to="/" className="footer-brand">
+            Pai Presente <span>♡</span>
+          </Link>
+          <p>Juntos desde o primeiro instante.</p>
+        </footer>
+      </div>
     </BrowserRouter>
   );
 }
+
+export default App;
