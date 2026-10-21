@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   BrowserRouter,
@@ -10,6 +9,9 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import imagemPai from './assets/ved.png';
+
+import Pagina2 from './pages/Pagina2';
+import Pagina3 from './pages/Pagina3';
 
 function Header() {
   return (
@@ -185,16 +187,6 @@ function HomePage() {
   );
 }
 
-// Página vazia: será desenvolvida por outra pessoa.
-function ManualPage() {
-  return <main className="blank-page" />;
-}
-
-// Página vazia: será desenvolvida por outra pessoa.
-function PreparacaoPage() {
-  return <main className="blank-page" />;
-}
-
 function LoginPage() {
   return (
     <main className="login-page">
@@ -223,8 +215,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/manual" element={<ManualPage />} />
-          <Route path="/preparacao" element={<PreparacaoPage />} />
+          <Route path="/manual" element={<Pagina2 />} />
+          <Route path="/preparacao" element={<Pagina3 />} />
           <Route path="/entrar" element={<LoginPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
