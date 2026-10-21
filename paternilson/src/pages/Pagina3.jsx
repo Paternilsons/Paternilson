@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import './Pagina3.css';
 
-export default function Pagina3() {
+export default function Pagina3({ onNavegar }) {
   const [modalCalendarioAberto, setModalCalendarioAberto] = useState(false);
   const [modalUploadAberto, setModalUploadAberto] = useState(false);
-  const navigate = useNavigate();
 
   return (
     <div className="pagina-container">
       {/* HERO BANNER */}
       <section className="hero-banner">
         <div className="hero-conteudo">
-          <h2>Toda semana é um passo a mais para te conhecer.</h2>
-          <p>Acompanhe a gestação da sua parceira e viva esse momento único.</p>
-          <img src="/caminho-da-sua-foto/coracao-linha.png" alt="Coração" className="coracao-decoracao" />
+          <h2>Toda semana<br />é um passo a mais<br />para te conhecer.</h2>
+          <p>Acompanhe a gestação da sua parceira<br />e viva esse momento único.</p>
+          <span className="coracao-decoracao">♡</span>
         </div>
         <div className="hero-imagem-container">
-          <img src="/caminho-da-sua-foto/ilustracao-bebe-gestacao.png" alt="Ilustração Gestação" className="hero-img-principal" />
+          <div className="frame-ovo">
+            <img 
+              src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" 
+              alt="Bebê gestação" 
+              className="hero-img-principal" 
+            />
+          </div>
           <div className="balao-frase">
             <span>Você já faz parte dessa história! ♡</span>
           </div>
@@ -25,95 +29,120 @@ export default function Pagina3() {
       </section>
 
       {/* CARD 1: SUA GESTAÇÃO */}
-      <section className="card-secao">
+      <section className="card-secao card-gestacao">
         <div className="card-header">
-          <img src="/caminho-da-sua-foto/icon-coracao-verde.png" alt="Ícone Gestação" className="card-icon" />
+          <div className="icon-badge badge-verde">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="2">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+          </div>
           <div>
             <h3>Sua gestação</h3>
             <p className="card-subtitulo">2º trimestre</p>
           </div>
         </div>
+
         <div className="barra-progresso-trilho">
           <div className="barra-progresso-preenchida" style={{ width: '42%' }}></div>
         </div>
+
         <div className="gestacao-detalhes-row">
           <div className="gestacao-esquerda">
             <div className="semana-info">
-              <img src="/caminho-da-sua-foto/icon-coracao-pequeno.png" alt="Coração" className="icon-p" />
+              <span className="icon-p">♡</span>
               <strong>16 semanas</strong>
             </div>
             <p className="semana-texto">Seu bebê já tem cerca de 12 cm!</p>
-            <button className="btn-verde" onClick={() => setModalCalendarioAberto(true)}>
-              <img src="/caminho-da-sua-foto/icon-calendario.png" alt="Calendário" className="icon-btn-inline" />
-              Ver calendário completo &rarr;
+            <button type="button" className="btn-verde-pill" onClick={() => setModalCalendarioAberto(true)}>
+              📅 Ver calendário completo →
             </button>
           </div>
           <div className="gestacao-direita-citacao">
-            <p>Cada semana é uma nova descoberta.</p>
-            <img src="/caminho-da-sua-foto/ramo-folhas.png" alt="Ramo decorativo" className="ramo-img" />
+            <span className="ramo-wrapper">🌿</span>
+            <div className="citacao-box">
+              <span className="mini-coracao">♡</span>
+              <p className="fonte-manuscrita">Cada semana é uma nova descoberta.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CARD 2: APOIO À PARCEIRA */}
       <section className="card-secao card-apoio">
-        <div className="card-header">
-          <img src="/caminho-da-sua-foto/icon-coracao-terracota.png" alt="Ícone Apoio" className="card-icon" />
-          <div>
-            <h3>Apoio à parceira</h3>
-            <p className="apoio-descricao">
-              Ela não está sozinha. Você também faz parte desse momento.
-            </p>
+        <div className="apoio-flex-container">
+          <div className="apoio-textos-col">
+            <div className="card-header">
+              <div className="icon-badge badge-terracota">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C36B4C" strokeWidth="2">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Apoio à parceira</h3>
+                <p className="apoio-descricao">
+                  Ela não está sozinha. Você também faz parte desse momento.
+                </p>
+              </div>
+            </div>
+
+            <div className="balao-destaque-apoio">
+              <span className="icon-p">♡</span>
+              <span>Pequenos gestos também são grandes demonstrações de amor.</span>
+            </div>
           </div>
-        </div>
-        <div className="apoio-conteudo">
-          <div className="balao-destaque-apoio">
-            <img src="/caminho-da-sua-foto/icon-coracao-linha.png" alt="Coração" className="icon-p" />
-            <span>Pequenos gestos também são grandes demonstrações de amor.</span>
-          </div>
-          <div className="apoio-ilustracao">
-            <img src="/caminho-da-sua-foto/maos-dadas.png" alt="Mãos dadas" className="img-maos" />
+
+          <div className="apoio-imagem-col">
+            <img 
+              src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" 
+              alt="Mãos dadas em gesto de apoio" 
+              className="img-apoio-suave" 
+            />
           </div>
         </div>
       </section>
 
       {/* CARD 3: CÁPSULA DE MOMENTOS */}
-      <section className="card-secao">
+      <section className="card-secao card-capsula">
         <div className="card-header flex-between">
           <div className="flex-align">
-            <img src="/caminho-da-sua-foto/icon-camera.png" alt="Câmera" className="card-icon" />
+            <div className="icon-badge badge-verde">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
             <div>
               <h3>Cápsula de Momentos</h3>
               <p className="card-subtitulo">Guarde aqui cada fase dessa linda jornada.</p>
             </div>
           </div>
-          <span className="seta-header">&rarr;</span>
+          <span className="seta-header">→</span>
         </div>
         <div className="capsula-grid">
           <div className="card-foto-item">
             <div className="foto-box">
-              <img src="/caminho-da-sua-foto/pre-natal-ultrassom.jpg" alt="Pré-natal" />
+              <img src="https://images.unsplash.com/photo-1578885136359-16c8bd4d3a8e?auto=format&fit=crop&w=500&q=80" alt="Pré-natal" />
             </div>
             <h4>Pré-natal</h4>
             <span>12/09</span>
           </div>
           <div className="card-foto-item">
             <div className="foto-box">
-              <img src="/caminho-da-sua-foto/barriguinha.jpg" alt="Barriguinha" />
+              <img src="https://images.unsplash.com/photo-1518101645466-7795885ff8f8?auto=format&fit=crop&w=500&q=80" alt="Barriguinha" />
             </div>
             <h4>Barriguinha</h4>
             <span>20/09</span>
           </div>
           <div className="card-foto-item">
             <div className="foto-box">
-              <img src="/caminho-da-sua-foto/sapatinhos.jpg" alt="Ultrassons" />
+              <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=500&q=80" alt="Ultrassoms" />
             </div>
             <h4>Ultrassons</h4>
             <span>05/10</span>
           </div>
           <div className="card-foto-item">
             <div className="foto-box">
-              <img src="/caminho-da-sua-foto/nosso-bebe.jpg" alt="Nosso bebê" />
+              <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=500&q=80" alt="Nosso bebê" />
             </div>
             <h4>Nosso bebê</h4>
             <span>—</span>
@@ -122,66 +151,114 @@ export default function Pagina3() {
           {/* CARD ADICIONAR FOTO */}
           <div className="card-foto-item card-adicionar-foto" onClick={() => setModalUploadAberto(true)}>
             <div className="adicionar-conteudo">
-              <span className="sinal-mais">+</span>
-              <img src="/caminho-da-sua-foto/icon-camera-verde.png" alt="Adicionar" className="icon-camera-add" />
+              <div className="mais-camera">
+                <span className="sinal-mais">+</span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </div>
               <p>Adicionar novas fotos e crie sua linha do tempo.</p>
-              <img src="/caminho-da-sua-foto/coracao-linha-pequeno.png" alt="Coração" className="icon-p" />
+              <span className="icon-p">♡</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CARD 4: NOTIFICAÇÕES */}
-      <section className="card-secao card-notificacao">
-        <div className="flex-align gap-notificacao">
-          <img src="/caminho-da-sua-foto/icon-sino.png" alt="Sino" className="card-icon" />
-          <div>
-            <h3>Receba notificações de ofertas</h3>
-            <p className="card-subtitulo">Gostaria de receber avisos e promoções especiais para você e seu bebê?</p>
-          </div>
-        </div>
-        <div className="notificacao-botoes">
-          <button className="btn-verde">Sim, quero!</button>
-          <button className="btn-outline-verde">Agora não</button>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <p>Juntos, em cada fase. ♡</p>
+      <footer className="footer-container">
+        <div className="footer-conteudo">
+          <span className="ramo-footer">🌿</span>
+          <p className="fonte-manuscrita-footer">Juntos, em cada fase. ♡</p>
+          <span className="ramo-footer flex-flip">🌿</span>
+        </div>
       </footer>
 
-      {/* ================= MODAL 1: CALENDÁRIO ================= */}
+      {/* ================= MODAL 1: CALENDÁRIO (FIEL À IMAGEM 1) ================= */}
       {modalCalendarioAberto && (
         <div className="modal-overlay">
           <div className="modal-box modal-calendario">
-            <button className="btn-fechar-modal" onClick={() => setModalCalendarioAberto(false)}>&times;</button>
-            <div className="modal-header-titulo">
-              <img src="/caminho-da-sua-foto/icon-calendario-verde.png" alt="Calendário" className="modal-icon-header" />
-              <div>
-                <h2>Calendário da Gestação</h2>
-                <p>Acompanhe os principais momentos da sua jornada.</p>
+            {/* CABEÇALHO DO MODAL */}
+            <div className="modal-header-container">
+              <div className="modal-header-titulo">
+                <div className="icon-badge badge-verde-calendario">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="3" ry="3"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                    <path d="M9 16l2 2 4-4"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h2>Calendário da Gestação</h2>
+                  <p>Acompanhe os principais momentos da sua jornada.</p>
+                </div>
               </div>
+              <button type="button" className="btn-fechar-modal" onClick={() => setModalCalendarioAberto(false)}>
+                ✕
+              </button>
             </div>
+
+            {/* CORPO DO MODAL DO CALENDÁRIO */}
             <div className="modal-calendario-corpo">
-              {/* Lado Esquerdo: Grade Calendário */}
+              {/* LADO ESQUERDO: GRADE DE CALENDÁRIO */}
               <div className="box-calendario-grid">
                 <div className="calendario-navegacao-mes">
-                  <button className="btn-seta-mes">&lt;</button>
+                  <button type="button" className="btn-seta-mes">‹</button>
                   <h3>Outubro 2025</h3>
-                  <button className="btn-seta-mes">&gt;</button>
+                  <button type="button" className="btn-seta-mes">›</button>
                 </div>
+
                 <div className="dias-semana-linha">
                   <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
                 </div>
+
                 <div className="dias-mes-grade">
-                  <span className="fora-mes">28</span><span className="fora-mes">29</span><span className="fora-mes">30</span>
-                  <span>1 <i className="ponto-coracao">♥</i></span><span>2</span><span>3</span><span>4 <i className="ponto-estrela">★</i></span>
-                  <span>5</span><span>6</span><span>7 <i className="ponto-verde">●</i></span><span>8 <i className="ponto-verde">●</i></span><span>9</span><span>10</span><span>11 <i className="ponto-coracao">♥</i></span>
-                  <span>12</span><span>13</span><span className="dia-selecionado">14 ●</span><span>15</span><span>16</span><span>17 <i className="ponto-verde">●</i></span><span>18</span>
-                  <span>19</span><span>20 <i className="ponto-coracao">♥</i></span><span>21</span><span>22 <i className="ponto-estrela">★</i></span><span>23 <i className="ponto-verde">●</i></span><span>24</span><span>25</span>
-                  <span>26</span><span>27</span><span>28 <i className="ponto-coracao">♥</i></span><span>29</span><span>30 <i className="ponto-verde">●</i></span><span>31</span><span className="fora-mes">1</span>
+                  <span className="fora-mes">28</span>
+                  <span className="fora-mes">29</span>
+                  <span className="fora-mes">30</span>
+                  <span className="dia-item">1 <i className="ponto-coracao">♥</i></span>
+                  <span className="dia-item">2</span>
+                  <span className="dia-item">3</span>
+                  <span className="dia-item">4 <i className="ponto-estrela">★</i></span>
+
+                  <span className="dia-item">5</span>
+                  <span className="dia-item">6</span>
+                  <span className="dia-item">7 <i className="ponto-verde">●</i></span>
+                  <span className="dia-item">8 <i className="ponto-verde">●</i></span>
+                  <span className="dia-item">9</span>
+                  <span className="dia-item">10</span>
+                  <span className="dia-item">11 <i className="ponto-coracao">♥</i></span>
+
+                  <span className="dia-item">12</span>
+                  <span className="dia-item">13</span>
+                  <span className="dia-item dia-selecionado-circular">
+                    14
+                    <span className="ponto-branco-selecionado">●</span>
+                  </span>
+                  <span className="dia-item">15</span>
+                  <span className="dia-item">16</span>
+                  <span className="dia-item">17 <i className="ponto-rosa-suave">●</i></span>
+                  <span className="dia-item">18</span>
+
+                  <span className="dia-item">19</span>
+                  <span className="dia-item">20 <i className="ponto-rosa-suave">●</i></span>
+                  <span className="dia-item">21</span>
+                  <span className="dia-item">22 <i className="ponto-estrela">★</i></span>
+                  <span className="dia-item">23 <i className="ponto-verde">●</i></span>
+                  <span className="dia-item">24</span>
+                  <span className="dia-item">25</span>
+
+                  <span className="dia-item">26</span>
+                  <span className="dia-item">27</span>
+                  <span className="dia-item">28 <i className="ponto-coracao">♥</i></span>
+                  <span className="dia-item">29</span>
+                  <span className="dia-item">30 <i className="ponto-verde">●</i></span>
+                  <span className="dia-item">31</span>
+                  <span className="fora-mes">1</span>
                 </div>
+
                 <div className="legendas-linha">
                   <span><i className="ponto-coracao">♥</i> Consultas</span>
                   <span><i className="ponto-estrela">★</i> Exames</span>
@@ -189,70 +266,122 @@ export default function Pagina3() {
                 </div>
               </div>
 
-              {/* Lado Direito: Próximos Eventos */}
+              {/* LADO DIREITO: PRÓXIMOS EVENTOS */}
               <div className="box-eventos-lista">
-                <h3><img src="/caminho-da-sua-foto/icon-calendar-check.png" alt="" className="icon-p" /> Próximos eventos</h3>
+                <div className="eventos-titulo-header">
+                  <div className="icon-badge-pequeno">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                      <path d="M9 16l2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <h3>Próximos eventos</h3>
+                </div>
+
                 <div className="evento-item">
-                  <img src="/caminho-da-sua-foto/icon-estetoscopio.png" alt="Consulta" className="evento-icon" />
+                  <div className="evento-icon-bg badge-verde-suave">🩺</div>
                   <div>
                     <strong>Consulta pré-natal</strong>
                     <p>14/10 • 10:00</p>
                   </div>
                 </div>
+
                 <div className="evento-item">
-                  <img src="/caminho-da-sua-foto/icon-lampada.png" alt="Dica" className="evento-icon" />
+                  <div className="evento-icon-bg badge-amarelo-suave">💡</div>
                   <div>
                     <strong>Dica da semana</strong>
                     <p>Hidratação é essencial!</p>
                   </div>
                 </div>
+
                 <div className="evento-item">
-                  <img src="/caminho-da-sua-foto/icon-coracao-rosa.png" alt="Ultrassom" className="evento-icon" />
+                  <div className="evento-icon-bg badge-rosa-suave">💖</div>
                   <div>
                     <strong>Exame de ultrassom</strong>
                     <p>17/10 • 15:00</p>
                   </div>
                 </div>
+
                 <div className="evento-item">
-                  <img src="/caminho-da-sua-foto/icon-prancha-check.png" alt="Ideia" className="evento-icon" />
+                  <div className="evento-icon-bg badge-verde-suave">📋</div>
                   <div>
                     <strong>Ideia de agrado</strong>
-                    <p>Que tal um banho relaxante e um doce favorito?</p>
+                    <p>Que tal um banho relaxante<br />e um doce favorito?</p>
                   </div>
                 </div>
+
                 <div className="card-frase-rodape">
-                  <p>Cada semana é um passo a mais para o grande dia! ♡</p>
+                  <span className="folha-decorativa-esq">🌿</span>
+                  <p className="frase-manuscrita-card">
+                    Cada semana<br />é um passo a mais<br />para o grande dia!<br />♡
+                  </p>
+                  <span className="folha-decorativa-dir">🌿</span>
                 </div>
               </div>
             </div>
-            <button className="btn-verde btn-fechar-calendario" onClick={() => setModalCalendarioAberto(false)}>
-              <img src="/caminho-da-sua-foto/icon-calendario-brag.png" alt="" className="icon-btn-inline" />
-              Fechar calendário
-            </button>
+
+            {/* RODAPÉ DO MODAL */}
+            <div className="modal-calendario-footer">
+              <div className="footer-frase-linha">
+                <span className="folha-icon">🌿</span>
+                <span className="texto-juntos">Juntos, em cada fase.<br />♡</span>
+              </div>
+              <button type="button" className="btn-fechar-calendario-pill" onClick={() => setModalCalendarioAberto(false)}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                  <path d="M9 16l2 2 4-4"></path>
+                </svg>
+                Fechar calendário
+              </button>
+            </div>
           </div>
         </div>
       )}
 
-      {/* ================= MODAL 2: UPLOAD DE FOTOS ================= */}
+      {/* ================= MODAL 2: UPLOAD DE FOTOS (FIEL À IMAGEM 2) ================= */}
       {modalUploadAberto && (
         <div className="modal-overlay">
-          <div className="modal-box modal-upload">
-            <button className="btn-fechar-modal" onClick={() => setModalUploadAberto(false)}>&times;</button>
-            <div className="upload-header">
-              <img src="/caminho-da-sua-foto/icon-coracao-brilhos.png" alt="Coração" className="icon-upload-header" />
-              <h2>Anexar imagem</h2>
+          <div className="modal-box modal-upload-fiel">
+            <div className="upload-header-row">
+              <div className="upload-titulo-area">
+                <span className="coracao-brilho">♡✨</span>
+                <h2>Anexar imagem</h2>
+              </div>
+              <button type="button" className="btn-fechar-modal" onClick={() => setModalUploadAberto(false)}>
+                ✕
+              </button>
             </div>
-            <label className="zone-drop">
+
+            <label className="zone-drop-fiel">
               <input type="file" accept="image/jpeg, image/png, image/heic" style={{ display: 'none' }} />
-              <img src="/caminho-da-sua-foto/icon-imagem-mais.png" alt="Anexar" className="img-drop-icon" />
-              <p>Clique para selecionar uma imagem</p>
+              <div className="icon-camera-mais-wrapper">
+                <svg width="60" height="50" viewBox="0 0 24 24" fill="none" stroke="#2D5545" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="4" ry="4" fill="#EBF2EE" stroke="#2D5545"/>
+                  <circle cx="8.5" cy="8.5" r="1.5" fill="#2D5545"/>
+                  <polyline points="21 15 16 10 5 21" stroke="#2D5545"/>
+                </svg>
+                <div className="badge-mais-circulo">+</div>
+              </div>
+              <p className="texto-dropzone">Clique para selecionar<br />uma imagem</p>
             </label>
-            <p className="formatos-texto">
+
+            <p className="formatos-texto-fiel">
               Formatos aceitos: JPG, PNG, HEIC &bull; Tamanho máximo: 10MB
             </p>
-            <div className="upload-botoes-row">
-              <button className="btn-cancelar" onClick={() => setModalUploadAberto(false)}>Cancelar</button>
-              <button className="btn-verde" onClick={() => setModalUploadAberto(false)}>Selecionar</button>
+
+            <div className="upload-botoes-row-fiel">
+              <button type="button" className="btn-cancelar-texto" onClick={() => setModalUploadAberto(false)}>
+                Cancelar
+              </button>
+              <button type="button" className="btn-verde-pill-selecionar" onClick={() => setModalUploadAberto(false)}>
+                Selecionar
+              </button>
             </div>
           </div>
         </div>
