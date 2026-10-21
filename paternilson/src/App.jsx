@@ -9,13 +9,18 @@ import {
   Navigate,
 } from 'react-router-dom';
 import './App.css';
+import imagemPai from './assets/ved.png';
 
 function Header() {
   return (
     <header className="header">
       <Link to="/" className="brand">
-        <span className="brand-icon">●</span>
-        <span className="brand-text">
+        <span className="brand-mark" aria-hidden="true">
+          <span />
+          <span />
+        </span>
+
+        <span className="brand-copy">
           <strong>Pai Presente</strong>
           <small>Juntos desde o primeiro instante</small>
         </span>
@@ -49,17 +54,23 @@ function Header() {
         >
           Preparação
         </NavLink>
-
-        <NavLink
-          to="/entrar"
-          className={({ isActive }) =>
-            isActive ? 'login-link active' : 'login-link'
-          }
-        >
-          <span aria-hidden="true">♙</span> Entrar
-        </NavLink>
       </nav>
+
+
     </header>
+  );
+}
+
+function HeroIllustration() {
+  return (
+    <div className="family-art">
+      <div className="art-halo" />
+      <img
+        src={imagemPai}
+        alt="Pai abraçando seus filhos"
+        className="hero-image"
+      />
+    </div>
   );
 }
 
@@ -67,164 +78,139 @@ function HomePage() {
   return (
     <main className="home-page">
       <section className="hero">
-        <div className="hero-content">
-          <span className="eyebrow">PATERNIDADE • PRESENÇA • AMOR</span>
+        <div className="hero-copy">
+          <div className="welcome-pill">
+            <span>♥</span>
+            Bem-vindo ao Pai Presente
+          </div>
 
           <h1>
-            Bem-vindo ao
+            A paternidade
             <br />
-            <span>Pai Presente</span> ♡
+            <span>também se aprende.</span>
+            <span className="title-spark">〰</span>
           </h1>
 
           <p>
-            Uma jornada de descobertas, aprendizados e momentos especiais
-            para acompanhar você desde o primeiro instante da paternidade.
+            Um espaço feito para te acompanhar em cada etapa dessa nova
+            jornada. Aqui você encontra apoio, orientação e segurança
+            para viver a paternidade com mais confiança.
           </p>
 
-          <div className="hero-buttons">
-            <Link to="/manual" className="button button-primary">
-              Conheça o manual
-              <span aria-hidden="true"> →</span>
-            </Link>
-
-            <Link to="/preparacao" className="button button-secondary">
-              Comece sua preparação
-            </Link>
-          </div>
-
-          <div className="hero-note">
-            <span className="note-heart">♡</span>
-            <span>Estar presente é o primeiro passo para transformar vidas.</span>
-          </div>
+          <div className="little-wave">〰〰〰</div>
         </div>
 
-        <div className="hero-visual">
-          <div className="visual-circle">
-            <div className="illustration">
-              <span className="illustration-sun">☼</span>
-              <span className="illustration-heart">♡</span>
-              <div className="father-head" />
-              <div className="father-hair" />
-              <div className="father-body" />
-              <div className="baby-head" />
-              <div className="baby-body" />
-              <div className="illustration-star star-one">✦</div>
-              <div className="illustration-star star-two">✧</div>
-            </div>
+        <HeroIllustration />
+      </section>
+
+      <section className="feature-section">
+        <Link to="/manual" className="feature-card manual-card">
+          <div className="card-icon clothes-icon" aria-hidden="true">
+            ♡
           </div>
 
-          <div className="floating-note">
-            <span className="floating-note-icon">♡</span>
-            <span>
-              <strong>Pequenos momentos</strong>
-              <small>Grandes memórias</small>
+          <div className="card-copy">
+            <h2>
+              Manual do Pai
+              <br />
+              de Primeira Viagem
+            </h2>
+
+            <p>
+              Tudo o que você precisa saber para se sentir mais preparado
+              e confiante com a chegada do seu bebê.
+            </p>
+
+            <span className="access-button green-button">
+              Acessar <span>→</span>
             </span>
           </div>
-        </div>
+
+          <span className="card-heart" aria-hidden="true">
+            ♡
+          </span>
+
+          <span className="card-leaf" aria-hidden="true">
+            ❧
+          </span>
+        </Link>
+
+        <Link
+          to="/preparacao"
+          className="feature-card preparation-card"
+        >
+          <div className="card-icon calendar-icon" aria-hidden="true">
+            ♡
+          </div>
+
+          <div className="card-copy">
+            <h2>
+              Preparação e
+              <br />
+              Galeria de Momentos
+            </h2>
+
+            <p>
+              Acompanhe sua gestação, organize o seu dia a dia e guarde
+              cada lembrança desse momento único.
+            </p>
+
+            <span className="access-button terracotta-button">
+              Acessar <span>→</span>
+            </span>
+          </div>
+
+          <div className="photo-stack" aria-hidden="true">
+            <div className="mini-photo photo-ultrasound">♡</div>
+            <div className="mini-photo photo-feet">♡</div>
+            <div className="mini-photo photo-baby">✧</div>
+          </div>
+
+          <span className="card-spark" aria-hidden="true">
+            〰
+          </span>
+
+          <span className="card-leaf" aria-hidden="true">
+            ❧
+          </span>
+        </Link>
       </section>
 
-      <section className="welcome-section">
-        <div className="section-heading">
-          <span className="eyebrow">SUA JORNADA COMEÇA AQUI</span>
-          <h2>Presença que faz a diferença</h2>
-          <p>
-            Cada etapa é uma oportunidade de aprender, cuidar e criar vínculos.
-          </p>
-        </div>
-
-        <div className="feature-grid">
-          <article className="feature-card">
-            <div className="feature-icon">♡</div>
-            <h3>Manual do Pai de Primeira Viagem</h3>
-            <p>
-              Um espaço dedicado a acompanhar a sua jornada como pai.
-            </p>
-            <Link to="/manual" className="text-link">
-              Acessar página <span aria-hidden="true">→</span>
-            </Link>
-          </article>
-
-          <article className="feature-card">
-            <div className="feature-icon">✦</div>
-            <h3>Preparação e Galeria de Momentos</h3>
-            <p>
-              Um espaço reservado para a preparação e as lembranças da família.
-            </p>
-            <Link to="/preparacao" className="text-link">
-              Acessar página <span aria-hidden="true">→</span>
-            </Link>
-          </article>
-        </div>
-      </section>
+      <div className="bottom-message">
+        <span>〰</span>
+        <p>Aqui, cada fase importa.</p>
+        <span>〰</span>
+      </div>
     </main>
   );
 }
 
-/*
-  Páginas reservadas para outra pessoa desenvolver.
-  Não adicione conteúdo aqui por enquanto.
-*/
+// Página vazia: será desenvolvida por outra pessoa.
 function ManualPage() {
-  return <main className="blank-page" aria-label="Manual do Pai" />;
+  return <main className="blank-page" />;
 }
 
+// Página vazia: será desenvolvida por outra pessoa.
 function PreparacaoPage() {
-  return <main className="blank-page" aria-label="Preparação e Galeria" />;
+  return <main className="blank-page" />;
 }
 
 function LoginPage() {
   return (
     <main className="login-page">
       <section className="login-card">
-        <span className="login-symbol">♡</span>
-        <h1>Bem-vindo de volta!</h1>
-        <p>Entre para continuar sua jornada com o Pai Presente.</p>
+        <span className="login-heart">♡</span>
 
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            alert('Esta página de entrada ainda não está conectada a um sistema de autenticação.');
-          }}
-        >
-          <label htmlFor="email">E-mail</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Digite seu e-mail"
-            required
-          />
+        <h1>Que bom ter você aqui!</h1>
 
-          <label htmlFor="password">Senha</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Digite sua senha"
-            required
-          />
+        <p>
+          Esta página de entrada ainda está em desenvolvimento.
+        </p>
 
-          <button type="submit" className="button button-primary login-button">
-            Entrar
-          </button>
-        </form>
-
-        <Link to="/" className="back-link">
-          ← Voltar para o início
+        <Link to="/" className="access-button green-button">
+          Voltar ao início <span>→</span>
         </Link>
       </section>
-    </main>
-  );
-}
-
-function NotFoundPage() {
-  return (
-    <main className="not-found-page">
-      <h1>Página não encontrada</h1>
-      <p>O endereço acessado não existe.</p>
-      <Link to="/" className="button button-primary">
-        Voltar para o início
-      </Link>
     </main>
   );
 }
@@ -240,16 +226,8 @@ function App() {
           <Route path="/manual" element={<ManualPage />} />
           <Route path="/preparacao" element={<PreparacaoPage />} />
           <Route path="/entrar" element={<LoginPage />} />
-          <Route path="/404" element={<NotFoundPage />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-
-        <footer className="footer">
-          <Link to="/" className="footer-brand">
-            Pai Presente <span>♡</span>
-          </Link>
-          <p>Juntos desde o primeiro instante.</p>
-        </footer>
       </div>
     </BrowserRouter>
   );
